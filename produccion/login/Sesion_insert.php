@@ -4,12 +4,12 @@
  //$id = $_POST['ID'];
  
  
- $id_sesion = $_POST['id_sesion'];
+
  $usuario = $_POST['usuario'];
  $pasw = $_POST['pasw'];
  
  $SesionCollectorObj = new SesionCollector();
- $SesionCollectorObj->insertSesion($id_sesion, $usuario, $pasw);
+ $SesionCollectorObj->insertSesion($usuario, $pasw);
 
 ?>
 <!doctype html>
