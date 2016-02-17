@@ -7,7 +7,7 @@ class SesionCollector extends Collector
 {
 	
 	function showSesion() 	{
-		$rows = self::$db->getRows("SELECT * FROM sesion ");
+		$rows = self::$db->getRows("SELECT *FROM sesion ");
 		$arraySesion = array();
 		foreach ($rows as $c) {
 			$aux = new Sesion($c{'id_sesion'}, $c{'usuario'}, $c{'pasw'});
@@ -16,8 +16,8 @@ class SesionCollector extends Collector
 		return $arraySesion;
 	}
 	
-	function insertSesion($usuario, $pasw) {
-    $new_row = self::$db->getRow("Insert into sesion (usuario, pasw) values ('$usuario','$pasw')");
+	function insertSesion($id_sesion, $usuario, $pasw) {
+    $new_row = self::$db->getRow("Insert into sesion (id_sesion, usuario, pasw) values ('$id_sesion','$usuario','$pasw')");
  	return 1;               
   }
 	
