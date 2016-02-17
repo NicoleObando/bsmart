@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Html5 Calendar API</title>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<script type="text/javascript" src="calendar.js"></script>
+</head>
+
+<body>
+	<div id="header">
+		<h1><img src="html5logo.png" width="64" height="64" alt="html5" /> Calendario</h1>
+	</div>
+
+	<div id="container">
+		<div id="date-cur"></div>
+		<ol id="days">
+			<li>Lun</li><li>Mar</li><li>Mie</li><li>Jue</li><li>Vie</li><li>Sab</li><li>Dom</li>
+		</ol>
+		<div class="clear"></div>
+		<ol id="calendar"></ol>
+		<div class="clear"></div>
+	</div>
+
+	<div id="footer">
+		Use los botones regresar o avanzar del navegador para cambiar el d&iacute;a.<br />
+		Click en <span class="add-event">+</span> para crear m&uacute;ltiples eventos por d&iacute;a, click en un evento para editar o eliminar.
+	</div>
+	<a id="add-event" href="javascript:void(0)">+</a>
+
+	<div id="new-event" href="javascript:void(0)">
+		<textarea id="event-txt"></textarea>
+		<div id="event-bar">
+			<button id="delete-event">Eliminar</button>
+			<button id="create-event">Crear evento</button> |
+			<a id="cancel-event" href="javascript:void(0)">Cancelar</a>
+		</div>
+	</div>
+</body>
+</html>
