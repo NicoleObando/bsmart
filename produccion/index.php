@@ -104,6 +104,7 @@ session_start();
                                                     </div>
                                                     
                                                     <p><button type="submit">Iniciar Sesion</button></p>
+                                                    <p><a href="login/form_Sesion.php" type="submit">Crear cuenta nueva</a></p>
                                                     <div class="clearfix"></div>
                                                 </form>
                                          
