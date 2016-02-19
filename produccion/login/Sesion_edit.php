@@ -1,10 +1,15 @@
 <?php
-session_start();
+  session_start();
 
-include_once("SesionCollector.php");
+  $id = $_GET['id'];
+
+ // echo $id;
+ include_once('Sesion.php');
+ include_once('SesionCollector.php');
  $SesionCollectorObj = new SesionCollector();
+ $ObjSesion = $SesionCollectorObj->showSesionId($id);
+ //print_r($ObjTransportista);
 ?>
-
 
 
 <!DOCTYPE html>
@@ -27,7 +32,7 @@ include_once("SesionCollector.php");
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="../images/ico/bs1.ico">
+    <link rel="shortcut icon" href="images/ico/bs1.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/apple-touch-icon-72-precomposed.png">
@@ -64,7 +69,7 @@ include_once("SesionCollector.php");
             </div><!--/.container-->
         </div><!--/.top-bar-->
 
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -73,63 +78,32 @@ include_once("SesionCollector.php");
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../index.php"><img src="../images/logo2.png" alt="logo"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/logo2.png" alt="logo"></a>
                 </div>
                 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="../home.php">Home</a></li>
-                        <li><a href="../about-us.php">About Us</a></li>
+                        <li class="active"><a href="home.html">Home</a></li>
+                        <li><a href="about-us - copia.html">About Us</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diario Virtual <i class="fa fa-angle-down"></i></a>
-                                 <ul class="dropdown-menu">
-                                    <li><a href="../actividades/Actividad_list.php">Diario</a></li>
-                                    <li><a href="../horario.php">Horario de Clases</a></li>
-                                    
-                                </ul>
-
-
-                           <!---doc     <ul class="dropdown-menu">
-                                <li><a href="construccion.php">Diario</a></li>                                
-                                <li><a href="horario.php">Horario de Clases</a></li>
-                                <li><a href="construccion.php">Horario de Examenes</a></li>
-                            </ul>-->
-                        </li>
-                        <li><a href="../costruccion.htl" class="dropdown-toggle" data-toggle="dropdown">Asignaturas <i class="fa fa-angle-down"></i></a>
-
-
-
                             <ul class="dropdown-menu">
-                                <li><a href="../construccion.php">Materia</a></li>                                
-                            
+                                <li><a href="construccion.html">Diario</a></li>                                
+                                <li><a href="horario.html">Horario de Clases</a></li>
+                                <li><a href="construccion.html">Horario de Examenes</a></li>
                             </ul>
-
-
-
-                            <!-- <ul class="dropdown-menu">
-                                <li><a href="materias.php">Materia</a></li>                                
-                                <li><a href="construccion.php">Cuestionarios</a></li>
+                        </li>
+                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Asignaturas <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="materias.html">Materia</a></li>                                
+                                <li><a href="construccion.html">Cuestionarios</a></li>
                                 <li><a href="construccion.html">Otros...</a></li>
-                            </ul>-->
-                        </li>   
-
-                        <li><a href="../notas/form_notas.php" >Calificaciones</a></li>  
-
-
-                        <li><a href="../costruccion.html" class="dropdown-toggle" data-toggle="dropdown">Planificaciones <i class="fa fa-angle-down"></i></a>
-                             <ul class="dropdown-menu">
-                                <li><a href="../docente/form_docente.php">Docente</a></li>                                
-                               <!-- <li><a href="construccion.html">Alumnos</a></li> -->
-                               <li><a href="form_Sesion.php">Sesiones</a></li>
-                               <li><a href="../curso1/form_Curso.php">Cursos</a></li>
-                               <li><a href="../notas/form_notas.php">Notas</a></li>
                             </ul>
-                        </li> 
+                        </li>    
                            <!-- target="info"-->
-                        
-
-                       
-                        <li><a href="../contactenos.php">Contactenos</a></li>                        
+                        <li><a href="construccion.html" >Calificaciones</a></li>                        
+                        <li><a href="construccion.html">Planificaciones</a></li> 
+                        <li><a href="contactenos.html">Contactenos</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -144,80 +118,86 @@ include_once("SesionCollector.php");
         <iframe name="info"  height="730"  src="inicio.html"  ></iframe>         
       </div>
    </section>
-************************ IFRAME centro **************************************************************-->
-<header>
-    <h1>Mantenimiento Sesioness</h1>
-</header>
-<br/>
-<br/>
-<div class="container">
-<div class="table-responsive"> 
-    <table class="table table-condensed table-bordered table-hover">
-        <thead>
-            <tr>
-                  <th bgcolor="#D8D8D8">ID</th>
-                  <th bgcolor="#D8D8D8">Usuario</th>
-                  <th bgcolor="#D8D8D8">Pass</th>
-                  <th colspan = 3 bgcolor="#D8D8D8">ACCION</th>
-           </tr>
-        </thead>
-  <?php  
+************************ Fortmulario **************************************************************-->
+<section id="contact-page">
+        <div class="container">
+            <div class="center">
+                <br>
+                <br>        
+                
+                <h2>Sesion</h2>
+                <p class="lead">B-Smart</p>
+            </div> 
+            <div class="row contact-wrap"> 
+                <div class="status alert alert-success" style="display: none"></div>
 
-    foreach ($SesionCollectorObj->showSesion() as $c){
-  ?>
-  <tbody>
-  <tr>
-     <td><?php echo $c->getid_sesion() ?></td>
-     <td><?php echo $c->getusuario() ?></td>
-     <td><?php echo $c->getpasw() ?></td>
+                <form action= "Sesion_update.php" method="post" action="form-horizontal"> 
+                    <div class="col-sm-8 col-sm-offset-4"  >
+                            
+                            <input type="number" name="id_sesion" required="required" style="visibility:hidden" readonly value = "<?php echo $ObjSesion->getid_sesion(); ?>" >
+                        </div>
 
-      </td>
-   
-     <td><a href="form_Sesion.php">Nuevo</a></td>   
-     <td><a href="Sesion_edit.php?id=<?php echo $c->getid_sesion() ?>">Editar</a></td>
-     <td><a href="Sesion_delete.php?id=<?php echo $c->getid_sesion() ?>">Eliminar</a></td>
-  </tr>
-  </tbody> 
-  <?php  
-  }
-  ?>
-</table>
-</div>
-</div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    <div class="col-sm-5 col-sm-offset-1">
+                       
+                        <div class="form-group">
+                            <label>Usuario *</label>
+                            <input type="text" name="usuario" class="form-control" required="required" value = "<?php echo $ObjSesion->getusuario(); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Password *</label>
+                            <input type="text" name="pasw" class="form-control" required="required" value = "<?php echo $ObjSesion->getpasw(); ?>">
+                        </div>
+                        
+                    </div>
 
-
-
-
-
+                    <div class="form-group">
+                        <div class="col-xs-offset-4 col-xs-8">
+                            <input type="submit" class="btn btn-primary" value="Actualizar">
+                            <input type="reset" class="btn btn-primary" value="Limpiar">
+                            <input type="button" value="Regresar" OnClick="history.back()" class="btn btn-primary">     
+                        </div>
+                    </div>
+                </form> 
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#contact-page-->
 
 <!--/************************* IFRAME centro **************************************************************-->
 
 
 <!--/************************* Foot **************************************************************-->
-     <section id="bottom">
+    <section id="bottom">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
             <div class="row">
-                <div class="col-md-5 col-sm-6">
+                <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3><a href="Actividad_list.php">Actividades académicas</a></h3>
+                        <h3><a href="#">Actividades académicas</a></h3>
                     </div>    
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-5 col-sm-6">
+                <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                       <h3><a href="../horario.php"> Horarios de Clases</a></h3>
+                       <h3><a href="#">Calendario académico</a></h3>
                      
                     </div>    
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-2 col-sm-6">
+                <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3><a href="../curso1/Curso_list.php">Cursos</a></h3>
+                        <h3><a href="#">Nuevos cursos</a></h3>
                     
                     </div>    
                 </div><!--/.col-md-3-->
 
-                 
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3><a href="#">Anuncios de sesiones</a></h3>
+                
+                    </div>    
                 </div><!--/.col-md-3-->
             </div>
         </div>
@@ -233,9 +213,10 @@ include_once("SesionCollector.php");
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
-                        <li><a href="../home.php">Home</a></li>
-                        <li><a href="../about-us.php">About Us</a></li>                        
-                        <li><a href="../contactenos.php">Contact Us</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Faq</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
